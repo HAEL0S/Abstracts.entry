@@ -1,6 +1,51 @@
 import { useState } from 'react';
 import { Search, FileSpreadsheet, User, Mail, Hash, ArrowRight, Building, Globe, Phone } from 'lucide-react';
 
+// tailwind.config.js
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+// src/index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstract Management Platform</title>
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
 export default function AbstractManagementPlatform() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchType, setSearchType] = useState('abstract');
@@ -313,18 +358,4 @@ export default function AbstractManagementPlatform() {
       )}
     </div>
   );
-}
-{
-  "name": "my-app",
-  "version": "0.1.0",
-+ "homepage": "https://gitname.github.io/react-gh-pages",
-  "private": true,
-}
-
-"scripts": {
-+   "predeploy": "npm run build",
-+   "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-
 }
